@@ -1,19 +1,21 @@
 import { redirect } from "next/navigation";
-
-import ThreadCard from "@/components/cards/ThreadCard";
-import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
-import { fetchThreadById } from "@/lib/actions/thread.actions";
-import Comment from "@/components/forms/Comment";
 
-export default async function Page({ params }: { params: { id: string } }) {
+import Comment from "@/components/forms/Comment";
+import ThreadCard from "@/components/cards/ThreadCard";
+
+import { fetchUser } from "@/lib/actions/user.actions";
+import { fetchThreadById } from "@/lib/actions/thread.actions";
+
+export const revalidate = 0;
+
+export default async function page({ params }: { params: { id: string } }) {
   if (!params.id) return null;
 
   const user = await currentUser();
   if (!user) return null;
 
   const userInfo = await fetchUser(user.id);
-
   if (!userInfo?.onboarded) redirect("/onboarding");
 
   const thread = await fetchThreadById(params.id);
@@ -22,9 +24,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     <section className="relative">
       <div>
         <ThreadCard
-          key={thread._id}
           id={thread._id}
-          currentUserId={user?.id || ""}
+          currentUserId={user.id}
           parentId={thread.parentId}
           content={thread.text}
           author={thread.author}
@@ -34,10 +35,10 @@ export default async function Page({ params }: { params: { id: string } }) {
         />
       </div>
 
-      <div className="mt-7 ">
+      <div className="mt-7">
         <Comment
-          threadId={thread.id}
-          currentUserImage={userInfo.image}
+          threadId={params.id}
+          currentUserImg={user.imageUrl}
           currentUserId={JSON.stringify(userInfo._id)}
         />
       </div>
@@ -47,7 +48,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <ThreadCard
             key={childItem._id}
             id={childItem._id}
-            currentUserId={childItem.id || ""}
+            currentUserId={user.id}
             parentId={childItem.parentId}
             content={childItem.text}
             author={childItem.author}
