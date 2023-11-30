@@ -20,7 +20,7 @@ export default function LeftSidebar() {
   const { userId } = useAuth();
 
   return (
-    <div className="custom-scrollbar leftsidebar">
+    <nav className="custom-scrollbar leftsidebar">
       <div className="flex w-[275px] flex-1 flex-col max-lg:items-end gap-6 px-6">
         <Link href="/" className="flex gap-4">
           <Image src="/logo.svg" alt="logo" width={28} height={28} />
@@ -97,6 +97,6 @@ export default function LeftSidebar() {
           }}
         />
       </div>
-    </div>
+    </nav>
   );
 }

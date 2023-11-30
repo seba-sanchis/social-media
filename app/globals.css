@@ -58,10 +58,6 @@
     @apply border-none bg-dark-1 text-base-regular text-gray-1 outline-none !important;
   }
 
-  .topbar {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-dark-1 px-6 py-3;
-  }
-
   .bottombar {
     @apply fixed bottom-0 z-10 w-full rounded-t-3xl bg-dark-1 p-4 backdrop-blur-lg xs:px-7 md:hidden;
   }
