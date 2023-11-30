@@ -38,7 +38,7 @@ export default async function RightSidebar() {
               ))}
             </>
           ) : (
-            <p className="!text-base-regular text-light-3">
+            <p className="!text-base-regular text-gray-1">
               No communities yet
             </p>
           )}
@@ -62,7 +62,7 @@ export default async function RightSidebar() {
               ))}
             </>
           ) : (
-            <p className="!text-base-regular text-light-3">No users yet</p>
+            <p className="!text-base-regular text-gray-1">No users yet</p>
           )}
         </div>
       </div>

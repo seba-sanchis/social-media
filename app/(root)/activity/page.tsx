@@ -16,9 +16,7 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="head-text">Activity</h1>
-
-      <section className="mt-10 flex flex-col gap-5">
+      <section className="px-4 mt-6 flex flex-col gap-5">
         {activity.length > 0 ? (
           <>
             {activity.map((activity) => (
@@ -42,7 +40,7 @@ export default async function Page() {
             ))}
           </>
         ) : (
-          <p className="!text-base-regular text-light-3">No activity yet</p>
+          <p className="!text-base-regular text-gray-1">No activity yet</p>
         )}
       </section>
     </>

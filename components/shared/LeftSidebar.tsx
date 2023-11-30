@@ -3,7 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
+import {
+  SignOutButton,
+  SignedIn,
+  useAuth,
+  OrganizationSwitcher,
+} from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 import { sidebarLinks } from "@/constants";
 
@@ -14,8 +20,15 @@ export default function LeftSidebar() {
   const { userId } = useAuth();
 
   return (
-    <section className="custom-scrollbar leftsidebar">
-      <div className="flex w-full flex-1 flex-col gap-6 px-6">
+    <div className="custom-scrollbar leftsidebar">
+      <div className="flex w-[275px] flex-1 flex-col max-lg:items-end gap-6 px-6">
+        <Link href="/" className="flex gap-4">
+          <Image src="/logo.svg" alt="logo" width={28} height={28} />
+          <p className="text-heading3-bold text-light-1 max-xs:hidden">
+            social-media
+          </p>
+        </Link>
+
         {sidebarLinks.map((link) => {
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
@@ -58,6 +71,32 @@ export default function LeftSidebar() {
           </SignOutButton>
         </SignedIn>
       </div>
-    </section>
+
+      <div className="flex items-center gap-1">
+        <div className="block md:hidden">
+          <SignedIn>
+            <SignOutButton>
+              <div className="flex cursor-pointer">
+                <Image
+                  src="/assets/logout.svg"
+                  alt="logout"
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </SignOutButton>
+          </SignedIn>
+        </div>
+
+        <OrganizationSwitcher
+          appearance={{
+            baseTheme: dark,
+            elements: {
+              organizationSwitcherTrigger: "py-2 px-4",
+            },
+          }}
+        />
+      </div>
+    </div>
   );
 }

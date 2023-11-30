@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (!userInfo?.onboarded) redirect("/onboarding");
 
   return (
-    <section>
+    <section className="px-4 mt-6">
       <ProfileHeader
         accountId={userInfo.id}
         authUserId={user.id}
@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         bio={userInfo.bio}
       />
 
-      <div className="mt-9">
+      <div>
         <Tabs defaultValue="threads" className="w-full">
           <TabsList className="tab">
             {profileTabs.map((tab) => (
@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <p className="max-sm:hidden">{tab.label}</p>
 
                 {tab.label === "Threads" && (
-                  <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
+                  <p className="ml-1 rounded-sm bg-gray-1 px-2 py-1 !text-tiny-medium text-light-2">
                     {userInfo.threads.length}
                   </p>
                 )}

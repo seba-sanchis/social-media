@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import ThreadCard from "@/components/cards/ThreadCard";
 import Pagination from "@/components/shared/Pagination";
 
+import PostThread from "@/components/forms/PostThread";
 import { fetchPosts } from "@/lib/actions/thread.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
 
@@ -15,6 +16,7 @@ export default async function Home({
   const user = await currentUser();
   if (!user) return null;
 
+  // fetch organization list created by user
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
 
@@ -25,9 +27,9 @@ export default async function Home({
 
   return (
     <>
-      <h1 className="head-text text-left">Home</h1>
+      <PostThread userId={userInfo._id} />
 
-      <section className="mt-9 flex flex-col gap-10">
+      <section className="flex flex-col gap-10">
         {result.posts.length === 0 ? (
           <p className="no-result">No threads found</p>
         ) : (

@@ -27,13 +27,9 @@ export default async function Page({
 
   return (
     <>
-      <h1 className="head-text">Communities</h1>
+      <Searchbar routeType="communities" />
 
-      <div className="mt-5">
-        <Searchbar routeType="communities" />
-      </div>
-
-      <section className="mt-9 flex flex-wrap gap-4">
+      <section className="px-4 mt-6 flex flex-wrap gap-4">
         {result.communities.length === 0 ? (
           <p className="no-result">No Result</p>
         ) : (
