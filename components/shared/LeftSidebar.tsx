@@ -55,7 +55,7 @@ export default function LeftSidebar() {
         })}
       </div>
 
-      <div className="mt-10 px-6">
+      <div className="w-[275px] px-6">
         <SignedIn>
           <SignOutButton signOutCallback={() => router.push("/sign-in")}>
             <div className="flex cursor-pointer gap-4 p-4">
@@ -72,7 +72,7 @@ export default function LeftSidebar() {
         </SignedIn>
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className="flex w-[275px] items-center gap-1">
         <div className="block md:hidden">
           <SignedIn>
             <SignOutButton>

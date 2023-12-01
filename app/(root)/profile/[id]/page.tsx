@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (!userInfo?.onboarded) redirect("/onboarding");
 
   return (
-    <section className="px-4 mt-6">
+    <section className="mt-6">
       <ProfileHeader
         accountId={userInfo.id}
         authUserId={user.id}

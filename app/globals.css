@@ -71,7 +71,7 @@
   }
 
   .leftsidebar {
-    @apply sticky left-0 top-0 z-20 flex h-screen xl:w-full flex-col justify-between items-end overflow-auto border-r border-r-gray-1 bg-dark-1 py-6 max-md:hidden;
+    @apply sticky left-0 top-0 z-20 flex h-screen xl:w-full flex-col items-end overflow-auto border-r border-r-gray-1 bg-dark-1 py-6 max-md:hidden;
   }
 
   .leftsidebar_link {
