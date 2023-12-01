@@ -72,7 +72,7 @@ export default function LeftSidebar() {
         </SignedIn>
       </div>
 
-      <div className="flex w-[275px] items-center gap-1">
+      <div className="flex w-[275px] px-6 items-center gap-1">
         <div className="block md:hidden">
           <SignedIn>
             <SignOutButton>
