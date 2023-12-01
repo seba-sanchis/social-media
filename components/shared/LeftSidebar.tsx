@@ -22,9 +22,9 @@ export default function LeftSidebar() {
   return (
     <nav className="custom-scrollbar leftsidebar">
       <div className="flex w-[275px] flex-1 flex-col max-lg:items-end gap-6 px-6">
-        <Link href="/" className="flex gap-4">
+        <Link href="/" className="flex gap-4 max-lg:px-4">
           <Image src="/logo.svg" alt="logo" width={28} height={28} />
-          <p className="text-heading3-bold text-light-1 max-xs:hidden">
+          <p className="text-heading3-bold text-light-1 max-lg:hidden">
             social-media
           </p>
         </Link>
@@ -55,7 +55,7 @@ export default function LeftSidebar() {
         })}
       </div>
 
-      <div className="w-[275px] px-6">
+      <div className="w-[275px] px-6 max-lg:items-end">
         <SignedIn>
           <SignOutButton signOutCallback={() => router.push("/sign-in")}>
             <div className="flex cursor-pointer gap-4 p-4">
@@ -72,7 +72,7 @@ export default function LeftSidebar() {
         </SignedIn>
       </div>
 
-      <div className="flex w-[275px] px-6 items-center gap-1">
+      <div className="flex w-[275px] px-6 max-lg:items-end items-center gap-1">
         <div className="block md:hidden">
           <SignedIn>
             <SignOutButton>
