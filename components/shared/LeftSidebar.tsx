@@ -55,9 +55,9 @@ export default function LeftSidebar() {
         })}
       </div>
 
-      <div className="w-[275px] px-6 max-lg:items-end">
-        <SignedIn>
-          <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+      <div className="flex w-[275px] px-6 max-lg:justify-end">
+        {/* <SignedIn>
+          <SignOutButton signOutCallback={() => router.push("/sign-in")}> */}
             <div className="flex cursor-pointer gap-4 p-4">
               <Image
                 src="/assets/logout.svg"
@@ -68,11 +68,11 @@ export default function LeftSidebar() {
 
               <p className="text-light-2 max-lg:hidden">Logout</p>
             </div>
-          </SignOutButton>
-        </SignedIn>
+          {/* </SignOutButton>
+        </SignedIn> */}
       </div>
 
-      <div className="flex w-[275px] px-6 max-lg:items-end items-center gap-1">
+      <div className="flex w-[275px] px-6 max-lg:justify-end items-center gap-1">
         <div className="block md:hidden">
           <SignedIn>
             <SignOutButton>
